@@ -1,23 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { getQuotes } from "../actions/quotes"
 
 function QuotesForm() {
     const [formData, setFormData] = useState({
         loanSize: "",
         creditScore: "",
-        propertyType: "SingleFamily",
-        occupancy: "Primary"
+        propertyType: "Single Family",
+        occupancy: "Primary Residence"
     });
 
+    const dispatch = useDispatch();
+    
     const updateFormData = (event) => {
         setFormData({...formData, [event.target.name]: event.target.value});
     }
-
     const { loanSize, creditScore } = formData;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData)
+        getQuotes(formData, dispatch);
     }
+  
 
     const formatNumberToCurrency = (e) => {
         var target = e.target;
@@ -82,9 +87,9 @@ function QuotesForm() {
                 <div className="form-category select-container">
                     <label htmlFor="occupancy">Occupancy</label>
                     <select name="occupancy" id="occupancy" onChange={e => updateFormData(e)}>
-                        <option value="SingleFamily">Primary Residence</option>
-                        <option value="Condo">Secondary Residence</option>
-                        <option value="Townhouse">Investment</option>
+                        <option value="Primary">Primary Residence</option>
+                        <option value="Secondary">Secondary Residence</option>
+                        <option value="Investment">Investment</option>
                     </select>
                 </div>
             </div>
