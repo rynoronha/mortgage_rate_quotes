@@ -6,8 +6,8 @@ function QuotesForm() {
     const [formData, setFormData] = useState({
         loanSize: "",
         creditScore: "",
-        propertyType: "Single Family",
-        occupancy: "Primary Residence"
+        propertyType: "SingleFamily",
+        occupancy: "Primary"
     });
 
     const dispatch = useDispatch();
@@ -19,11 +19,9 @@ function QuotesForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
         getQuotes(formData, dispatch);
     }
   
-
     const formatNumberToCurrency = (e) => {
         var target = e.target;
         var temp = e.target.value.replace(/,/g, '');
