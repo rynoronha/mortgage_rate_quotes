@@ -58,10 +58,10 @@ function QuotesForm() {
                 <div className="form-category select-container">
                     <label htmlFor="property-type">Property Type</label>
                     <select name="propertyType" id="property-type" onChange={e => updateFormData(e)}>
-                        <option value="SingleFamily">SingleFamily</option>
+                        <option value="SingleFamily">Single Family</option>
                         <option value="Condo">Condo</option>
                         <option value="Townhouse">Townhouse</option>
-                        <option value="MultiFamily">MultiFamily</option>
+                        <option value="MultiFamily">Multi Family</option>
                     </select>
                 </div>
                 <div className="form-category">
@@ -82,8 +82,8 @@ function QuotesForm() {
                 <div className="form-category select-container">
                     <label htmlFor="occupancy">Occupancy</label>
                     <select name="occupancy" id="occupancy" onChange={e => updateFormData(e)}>
-                        <option value="SingleFamily">Primary</option>
-                        <option value="Condo">Secondary</option>
+                        <option value="SingleFamily">Primary Residence</option>
+                        <option value="Condo">Secondary Residence</option>
                         <option value="Townhouse">Investment</option>
                     </select>
                 </div>
