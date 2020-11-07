@@ -73,6 +73,9 @@ function QuotesForm() {
                         type="number"
                         name="creditScore"
                         id="credit-score"
+                        min="300" 
+                        max="850"
+                        step="1" 
                         required
                     />
                 </div>
