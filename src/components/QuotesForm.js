@@ -8,13 +8,34 @@ function QuotesForm() {
         occupancy: "Primary"
     });
 
-    const updateFormData = event => setFormData({...formData, [event.target.name]: event.target.value});
+    const updateFormData = (event) => {
+        setFormData({...formData, [event.target.name]: event.target.value});
+    }
 
     const { loanSize, creditScore } = formData;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData)
+    }
+
+    const formatNumberToCurrency = (e) => {
+        var target = e.target;
+        var temp = e.target.value.replace(/,/g, '');
+        var value = Number(temp).toLocaleString('en-US');
+
+        if (temp === '') {
+            target.value = '';
+        } else {
+            target.value = '$' + value;
+        }
+    }
+
+    const formatCurrencyToNumber = (e) => {
+        let target = e.target;
+        let value = target.value.replace(/[,.]/g, '');
+
+        target.value = value.replace(/\$/,'');
     }
 
     return (
@@ -25,6 +46,8 @@ function QuotesForm() {
                     <input
                         value={loanSize}
                         onChange={e => updateFormData(e)}
+                        onFocus={e => formatCurrencyToNumber(e)}
+                        onBlur={e => formatNumberToCurrency(e)}
                         placeholder=""
                         type="text"
                         name="loanSize"
@@ -34,7 +57,7 @@ function QuotesForm() {
                 </div>
                 <div className="form-category select-container">
                     <label htmlFor="property-type">Property Type</label>
-                    <select name="property-type" id="property-type" onChange={e => updateFormData(e)}>
+                    <select name="propertyType" id="property-type" onChange={e => updateFormData(e)}>
                         <option value="SingleFamily">SingleFamily</option>
                         <option value="Condo">Condo</option>
                         <option value="Townhouse">Townhouse</option>
@@ -47,7 +70,7 @@ function QuotesForm() {
                         value={creditScore}
                         onChange={e => updateFormData(e)}
                         placeholder=""
-                        type="text"
+                        type="number"
                         name="creditScore"
                         id="credit-score"
                         required
