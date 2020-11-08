@@ -42,6 +42,7 @@ function QuotesDisplay() {
                                 <td>{formatPercent(quote.apr)}</td>
                             </tr>
                         ))}
+                        
                     </tbody>
                 </table>
         </div>
