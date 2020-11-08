@@ -24,9 +24,9 @@ function QuotesForm() {
   
 
     const formatNumberToCurrency = (e) => {
-        var target = e.target;
-        var temp = e.target.value.replace(/,/g, '');
-        var value = Number(temp).toLocaleString('en-US');
+        let target = e.target;
+        let temp = e.target.value.replace(/,/g, '');
+        let value = Number(temp).toLocaleString('en-US');
 
         if (temp === '') {
             target.value = '';
