@@ -94,4 +94,14 @@ th {
   font-weight: normal;
 }
 
+.fill-out-form-notice {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #143735;
+  
+}
+
 

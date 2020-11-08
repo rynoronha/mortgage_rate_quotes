@@ -45,6 +45,9 @@ function QuotesDisplay() {
                         
                     </tbody>
                 </table>
+                {!quotes.length &&
+                    <div className="fill-out-form-notice">Please fill out the form above to display your quotes</div>
+                }
         </div>
     )
 }
