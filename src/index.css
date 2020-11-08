@@ -8,9 +8,11 @@ body {
   margin: auto;
 }
 
+/* FORM */
+
 .form {
   width: 90%;
-  margin: 50px auto;
+  margin: 50px auto 120px;
 }
 
 .form-categories-container {
@@ -53,6 +55,38 @@ button {
   background-color: #143735;
   color: white;
   border-radius: 5px;
+}
+
+/* TABLE */
+
+.table-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid lightgray;
+}
+
+tr {
+  border: 1px solid lightgray;
+}
+
+td {
+  padding: 30px 10px;
+}
+
+th {
+  text-align: left;
+  padding: 15px 10px;
+}
+
+th {
+  color: gray;
+  font-weight: normal;
 }
 
 

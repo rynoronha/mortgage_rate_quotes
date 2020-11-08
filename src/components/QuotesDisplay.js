@@ -5,7 +5,7 @@ function QuotesDisplay() {
     const quotes = useSelector(state => state.quotes);
 
     return (
-        <div>
+        <div className="table-container">
             <table className="table">
                     <thead>
                         <tr>
@@ -13,7 +13,7 @@ function QuotesDisplay() {
                         <th>PRODUCT</th>
                         <th>RATE</th>
                         <th>CLOSING<br/>COSTS</th>
-                        <th>MONTHLY<br/>PAYMENTS</th>
+                        <th>MONTHLY<br/>PAYMENT</th>
                         <th>APR<br/></th>
                     </tr>
                     </thead>

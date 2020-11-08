@@ -5,8 +5,10 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 export const getQuotes = async (formData, dispatch) => {
     const { loanSize, creditScore, propertyType, occupancy } = formData;
+
     const queriesURL = `quotes?loanSize=${loanSize}&creditScore=${creditScore}&propertyType=${propertyType}&occupancy=${occupancy}`;
     const fullURL = baseURL + queriesURL;
+
     const response = await fetch(fullURL, {
         method: 'GET',
         headers: {
@@ -14,7 +16,9 @@ export const getQuotes = async (formData, dispatch) => {
             'Content-Type': 'application/json'
         }
     })
+
     const data = await response.json();
+
     dispatch({
         type: GET_QUOTES,
         payload: data.rateQuotes

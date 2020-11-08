@@ -22,6 +22,7 @@ function QuotesForm() {
         getQuotes(formData, dispatch);
     }
   
+
     const formatNumberToCurrency = (e) => {
         var target = e.target;
         var temp = e.target.value.replace(/,/g, '');
