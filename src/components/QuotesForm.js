@@ -14,7 +14,16 @@ function QuotesForm() {
     const dispatch = useDispatch();
     
     const updateFormData = (event) => {
-        setFormData({...formData, [event.target.name]: event.target.value});
+        if (event.target.name === "loanSize") {
+            const re = /^[0-9\b]+$/;
+           
+            if (event.target.value === '' || re.test(event.target.value)) {
+                setFormData({...formData, [event.target.name]: event.target.value});
+            }
+        } else {
+            setFormData({...formData, [event.target.name]: event.target.value});
+        }
+        
     }
     const { loanSize, creditScore } = formData;
 
@@ -23,7 +32,6 @@ function QuotesForm() {
         e.preventDefault();
         getQuotes(formData, dispatch);
     }
-  
 
     const formatNumberToCurrency = (e) => {
         let target = e.target;
