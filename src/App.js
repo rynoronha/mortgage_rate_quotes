@@ -5,7 +5,7 @@ import QuotesForm from './components/QuotesForm';
 function App() {
   return (
     <div className="App">
-      <h1>Mortgage Rate Quotes</h1>
+      <h1 className="title">Mortgage Rate Quotes</h1>
       <QuotesForm />
       <QuotesDisplay />
     </div>

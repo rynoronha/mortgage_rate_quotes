@@ -8,6 +8,15 @@ body {
   margin: auto;
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 100px;
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #143735;
+}
+
 /* FORM */
 
 .form {
