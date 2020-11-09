@@ -33,8 +33,8 @@ function QuotesDisplay() {
                     </tr>
                     </thead>
                     <tbody>
-                        {quotes.map((quote) => (
-                            <tr key={quote.quote_id}>
+                        {quotes.map((quote, i) => (
+                            <tr key={i}>
                                 <td>{quote.lenderName}</td>
                                 <td>{quote.loanType}</td>
                                 <td>{formatPercent(quote.interestRate)}</td>
