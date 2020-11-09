@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 function QuotesDisplay() {
     const quotes = useSelector(state => state.quotes);
+    const isLoading = useSelector(state => state.isLoading)
 
     const formatPercent = (number) => {
         let decimalPlaces = number.toString().split('.')[1];
@@ -45,8 +46,11 @@ function QuotesDisplay() {
                         
                     </tbody>
                 </table>
-                {!quotes.length &&
+                {!quotes.length && !isLoading &&
                     <div className="fill-out-form-notice">Please fill out the form above to display your quotes</div>
+                }
+                {isLoading &&
+                    <div className="loading">Loading...</div>
                 }
         </div>
     )

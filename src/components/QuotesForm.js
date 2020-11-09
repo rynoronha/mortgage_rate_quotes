@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { getQuotes } from "../actions/quotes"
+import { showLoader } from "../actions/loader"
 
 function QuotesForm() {
     const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ function QuotesForm() {
     const { loanSize, creditScore } = formData;
 
     const handleSubmit = (e) => {
+        showLoader(dispatch);
         e.preventDefault();
         getQuotes(formData, dispatch);
     }

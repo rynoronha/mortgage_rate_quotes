@@ -1,5 +1,6 @@
 const initState = {
-    quotes: []
+    quotes: [],
+    isLoading: false
 }
 
 const rootReducer = (state = initState, action) => {
@@ -7,6 +8,12 @@ const rootReducer = (state = initState, action) => {
         case "GET_QUOTES" :
             return {
                 quotes: action.payload,
+                isLoading: false
+            }
+        case "SHOW_LOADER":
+            return {
+                ...state,
+                isLoading: true
             }
         default:
             return state
