@@ -1,6 +1,6 @@
 import './App.css';
-import QuotesDisplay from './components/QuotesDisplay';
-import QuotesForm from './components/QuotesForm';
+import QuotesDisplay from './components/QuotesDisplay/QuotesDisplay';
+import QuotesForm from './components/QuotesForm/QuotesForm';
 
 function App() {
   return (
