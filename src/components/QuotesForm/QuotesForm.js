@@ -31,6 +31,7 @@ function QuotesForm() {
         showLoader(dispatch);
         e.preventDefault();
         getQuotes(formData, dispatch);
+        console.log("form submitted")
     }
 
     const formatNumberToCurrency = (e) => {
@@ -53,11 +54,12 @@ function QuotesForm() {
     }
 
     return (
-        <form className="form" onSubmit={e => handleSubmit(e)}>
+        <form data-testid="form" className="form" onSubmit={e => handleSubmit(e)}>
             <div className="form-categories-container">
                 <div className="form-category">
                     <label htmlFor="loan-size">Loan Size</label>
                     <input
+                        data-testid="loan-size"
                         value={loanSize}
                         onChange={e => updateFormData(e)}
                         onFocus={e => formatCurrencyToNumber(e)}
@@ -71,7 +73,7 @@ function QuotesForm() {
                 </div>
                 <div className="form-category select-container">
                     <label htmlFor="property-type">Property Type</label>
-                    <select name="propertyType" id="property-type" onChange={e => updateFormData(e)}>
+                    <select data-testid="property-type" name="propertyType" id="property-type" onChange={e => updateFormData(e)}>
                         <option value="SingleFamily">Single Family</option>
                         <option value="Condo">Condo</option>
                         <option value="Townhouse">Townhouse</option>
@@ -81,6 +83,7 @@ function QuotesForm() {
                 <div className="form-category">
                     <label htmlFor="credit-score">Credit Score</label>
                     <input
+                        data-testid="credit-score"
                         value={creditScore}
                         onChange={e => updateFormData(e)}
                         placeholder=""
@@ -95,14 +98,14 @@ function QuotesForm() {
                 </div>
                 <div className="form-category select-container">
                     <label htmlFor="occupancy">Occupancy</label>
-                    <select name="occupancy" id="occupancy" onChange={e => updateFormData(e)}>
+                    <select data-testid="occupancy" name="occupancy" id="occupancy" onChange={e => updateFormData(e)}>
                         <option value="Primary">Primary Residence</option>
                         <option value="Secondary">Secondary Residence</option>
                         <option value="Investment">Investment</option>
                     </select>
                 </div>
             </div>
-            <button className="button" type="submit">Quote Rates</button>
+            <button data-testid="button" className="button" type="submit">Quote Rates</button>
         </form>
     )
 }
