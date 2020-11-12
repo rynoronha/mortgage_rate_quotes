@@ -1,7 +1,6 @@
 import React from 'react';
 import  QuotesDisplay  from './QuotesDisplay';
-import {cleanup } from '@testing-library/react';
-import { render, screen } from '../../test-utils'
+import { render, screen, cleanup  } from '../../test-utils'
 
 afterEach(cleanup);
 

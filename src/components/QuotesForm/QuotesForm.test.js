@@ -1,13 +1,14 @@
 import React from 'react';
 import  QuotesForm  from './QuotesForm';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+// import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render,  fireEvent, cleanup } from '../../test-utils'
 import { Provider } from 'react-redux';
 import store from '../../store';
 
 afterEach(cleanup);
 
 test('renders the form inputs and button', () => {
-    const { queryByTestId } = render(<Provider store={store}><QuotesForm /></Provider>);
+    const { queryByTestId } = render(<QuotesForm />);
 
     expect(queryByTestId("loan-size")).toBeTruthy();
     expect(queryByTestId("property-type")).toBeTruthy();
@@ -17,13 +18,13 @@ test('renders the form inputs and button', () => {
 });
 
 test('it matches snapshot', () => {
-    const tree = render(<Provider store={store}><QuotesForm /></Provider>);
+    const tree = render(<QuotesForm />);
 
     expect(tree).toMatchSnapshot();
 })
 
 test('updates input values on change', () => {
-    const { queryByTestId } = render(<Provider store={store}><QuotesForm /></Provider>);
+    const { queryByTestId } = render(<QuotesForm />);
 
     const loanSizeInput = queryByTestId("loan-size");
     const creditScoreInput = queryByTestId("credit-score");
@@ -36,7 +37,7 @@ test('updates input values on change', () => {
 });
 
 test('updates select values on change', () => {
-    const { queryByTestId } = render(<Provider store={store}><QuotesForm /></Provider>);
+    const { queryByTestId } = render(<QuotesForm />);
 
     const propertyTypeSelect = queryByTestId("property-type");
     const occupancySelect = queryByTestId("occupancy");
@@ -49,7 +50,7 @@ test('updates select values on change', () => {
 });
 
 test('does not update loan size input value on change if non numeric character is entered', () => {
-    const { queryByTestId } = render(<Provider store={store}><QuotesForm /></Provider>);
+    const { queryByTestId } = render(<QuotesForm />);
 
     const loanSizeInput = queryByTestId("loan-size");
 
@@ -60,7 +61,7 @@ test('does not update loan size input value on change if non numeric character i
 
 test('triggers handleSubmit function when form is submitted', () => {
     const spy = jest.spyOn(console, 'log')
-    const wrapper = render(<Provider store={store}><QuotesForm /></Provider>);
+    const wrapper = render(<QuotesForm />);
 
     const loanSizeInput = wrapper.queryByTestId("loan-size");
     const creditScoreInput = wrapper.queryByTestId("credit-score");
