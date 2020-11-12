@@ -18,10 +18,7 @@ export const getQuotes = async (formData, dispatch) => {
     })
 
     const data = await response.json();
-    console.log("RESULTS")
-    console.log(data)
-    console.log(data.rateQuotes)
-
+    
     if(!data.rateQuotes.length) {
         dispatch({
             type: GET_NO_QUOTES_RETURNED,

@@ -34,7 +34,7 @@ function QuotesDisplay() {
                     </tr>
                     </thead>
                     <tbody>
-                        {quotes.map((quote, i) => (
+                        {!isLoading && quotes.map((quote, i) => (
                             <tr key={i}>
                                 <td>{quote.lenderName}</td>
                                 <td>{quote.loanType}</td>
