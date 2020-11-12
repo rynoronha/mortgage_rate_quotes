@@ -33,7 +33,7 @@ const rootReducer = (state = initState, action) => {
                 ...state,
                 isLoading: false,
                 error: {
-                    message: action.payload
+                   status: action.payload
                 }
             }
         default:

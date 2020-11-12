@@ -94,7 +94,9 @@ test('displays properly formatted currency values', () => {
 test('displays loading text when waiting for quotes to be fetched', () => {
     render(<QuotesDisplay />, {initialState: { 
         quotes: [],
-        isLoading: true
+        isLoading: true,
+        areNoQuotesReturned: false,
+        error: null
     }});
 
     expect(screen.getByText(/Loading.../)).toBeInTheDocument();
@@ -104,8 +106,22 @@ test('displays no results text when no quotes are returned', () => {
     render(<QuotesDisplay />, {initialState: { 
         quotes: [],
         isLoading: false,
-        areNoQuotesReturned: true
+        areNoQuotesReturned: true,
+        error: null
     }});
 
     expect(screen.getByText(/Your search returned no results/)).toBeInTheDocument();
+})
+
+test('displays error text when there is an error fetching quotes', () => {
+    render(<QuotesDisplay />, {initialState: { 
+        quotes: [],
+        isLoading: false,
+        areNoQuotesReturned: false,
+        error: {
+            status: 403
+        }
+    }});
+
+    expect(screen.getByText(/WHOOPS, something went wrong! Please try again/)).toBeInTheDocument();
 })

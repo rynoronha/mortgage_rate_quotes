@@ -61,7 +61,7 @@ function QuotesDisplay() {
                 }
                 {error &&
                     <div className="error-message">WHOOPS, something went wrong! Please try again. <br/>
-                        <p className="error-status">STATUS CODE: {error.message}</p>
+                        <p className="error-status">STATUS CODE: {error.status}</p>
                     </div>
                 }
         </div>
