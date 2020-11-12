@@ -9,7 +9,6 @@ test('renders the display table and fill out form notice', () => {
 
     expect(queryByTestId("table")).toBeTruthy();
     expect(queryByTestId("fill-out-form-notice")).toBeTruthy();
-    
 });
 
 test('it matches snapshot', () => {
