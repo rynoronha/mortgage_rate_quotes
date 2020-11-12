@@ -5,6 +5,7 @@ function QuotesDisplay() {
     const quotes = useSelector(state => state.quotes);
     const isLoading = useSelector(state => state.isLoading)
     const areNoQuotesReturned = useSelector(state => state.areNoQuotesReturned)
+    const error = useSelector(state => state.error)
 
     const formatPercent = (number) => {
         let decimalPlaces = number.toString().split('.')[1];
@@ -34,7 +35,7 @@ function QuotesDisplay() {
                     </tr>
                     </thead>
                     <tbody>
-                        {!isLoading && quotes.map((quote, i) => (
+                        {!isLoading && !error && quotes.map((quote, i) => (
                             <tr key={i}>
                                 <td>{quote.lenderName}</td>
                                 <td>{quote.loanType}</td>
@@ -47,7 +48,7 @@ function QuotesDisplay() {
                         
                     </tbody>
                 </table>
-                {!quotes.length && !isLoading && !areNoQuotesReturned &&
+                {!quotes.length && !isLoading && !error && !areNoQuotesReturned &&
                     <div data-testid="fill-out-form-notice" className="fill-out-form-notice">Please fill out the form above to display your quotes</div>
                 }
                 {isLoading &&
@@ -56,6 +57,11 @@ function QuotesDisplay() {
                 {areNoQuotesReturned &&
                     <div className="no-quotes">Your search returned no results. <br/>
                         Please modify your query and try again.
+                    </div>
+                }
+                {error &&
+                    <div className="error-message">WHOOPS, something went wrong! Please try again. <br/>
+                        <p className="error-status">STATUS CODE: {error.message}</p>
                     </div>
                 }
         </div>

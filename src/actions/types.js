@@ -1,3 +1,4 @@
 export const GET_QUOTES = "GET_QUOTES";
 export const SET_NO_QUOTES_RETURNED = "SET_NO_QUOTES_RETURNED";
 export const SHOW_LOADER = "SHOW_LOADER";
+export const GET_ERROR = "GET_ERROR";

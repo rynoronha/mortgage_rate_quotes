@@ -122,6 +122,14 @@ th {
   color: #143735;
 }
 
+.error-message {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color:rgb(182, 50, 50);
+}
+
 
 
 

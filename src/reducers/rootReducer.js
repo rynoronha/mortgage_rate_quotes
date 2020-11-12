@@ -1,7 +1,8 @@
 const initState = {
     quotes: [],
     isLoading: false,
-    areNoQuotesReturned: false
+    areNoQuotesReturned: false,
+    error: null
 }
 
 const rootReducer = (state = initState, action) => {
@@ -10,19 +11,30 @@ const rootReducer = (state = initState, action) => {
             return {
                 quotes: action.payload,
                 isLoading: false,
-                areNoQuotesReturned: false
+                areNoQuotesReturned: false,
+                error: null
             }
         case "SET_NO_QUOTES_RETURNED" :
             return {
                 quotes: action.payload,
                 isLoading: false,
-                areNoQuotesReturned: true
+                areNoQuotesReturned: true,
+                error: null
             }
         case "SHOW_LOADER":
             return {
                 ...state,
                 areNoQuotesReturned: false,
-                isLoading: true
+                isLoading: true,
+                error: null
+            }
+        case "GET_ERROR":
+            return {
+                ...state,
+                isLoading: false,
+                error: {
+                    message: action.payload
+                }
             }
         default:
             return state
