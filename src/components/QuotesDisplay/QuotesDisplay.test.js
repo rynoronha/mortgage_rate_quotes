@@ -99,3 +99,13 @@ test('displays loading text when waiting for quotes to be fetched', () => {
 
     expect(screen.getByText(/Loading.../)).toBeInTheDocument();
 })
+
+test('displays no results text when no quotes are returned', () => {
+    render(<QuotesDisplay />, {initialState: { 
+        quotes: [],
+        isLoading: false,
+        areNoQuotesReturned: true
+    }});
+
+    expect(screen.getByText(/Your search returned no results/)).toBeInTheDocument();
+})
