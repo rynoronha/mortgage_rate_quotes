@@ -18,6 +18,7 @@ export const getQuotes = async (formData, dispatch) => {
     })
 
     const data = await response.json();
+    console.log(data.rateQuotes)
 
     dispatch({
         type: GET_QUOTES,

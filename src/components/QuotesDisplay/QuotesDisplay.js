@@ -21,7 +21,7 @@ function QuotesDisplay() {
 
     return (
         <div className="table-container">
-            <table className="table">
+            <table data-testid="table" className="table">
                     <thead>
                         <tr>
                         <th>LENDER</th>
@@ -47,7 +47,7 @@ function QuotesDisplay() {
                     </tbody>
                 </table>
                 {!quotes.length && !isLoading &&
-                    <div className="fill-out-form-notice">Please fill out the form above to display your quotes</div>
+                    <div data-testid="fill-out-form-notice" className="fill-out-form-notice">Please fill out the form above to display your quotes</div>
                 }
                 {isLoading &&
                     <div className="loading">Loading...</div>

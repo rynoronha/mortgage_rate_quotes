@@ -6,7 +6,7 @@ import store from '../../store';
 
 afterEach(cleanup);
 
-test('renders the form inputs and button correctly', () => {
+test('renders the form inputs and button', () => {
     const { queryByTestId } = render(<Provider store={store}><QuotesForm /></Provider>);
 
     expect(queryByTestId("loan-size")).toBeTruthy();
