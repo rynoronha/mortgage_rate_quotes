@@ -12,7 +12,7 @@ const rootReducer = (state = initState, action) => {
                 isLoading: false,
                 areNoQuotesReturned: false
             }
-        case "GET_NO_QUOTES_RETURNED" :
+        case "SET_NO_QUOTES_RETURNED" :
             return {
                 quotes: action.payload,
                 isLoading: false,
