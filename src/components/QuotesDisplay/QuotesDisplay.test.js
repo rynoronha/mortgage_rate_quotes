@@ -91,3 +91,12 @@ test('displays properly formatted currency values', () => {
     expect(screen.getByText(/\$5,000/)).toBeInTheDocument();
     expect(screen.getByText(/\$2,000/)).toBeInTheDocument();
 })
+
+test('displays loading text when waiting for quotes to be fetched', () => {
+    render(<QuotesDisplay />, {initialState: { 
+        quotes: [],
+        isLoading: true
+    }});
+
+    expect(screen.getByText(/Loading.../)).toBeInTheDocument();
+})
