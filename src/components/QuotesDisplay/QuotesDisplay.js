@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 function QuotesDisplay() {
     const quotes = useSelector(state => state.quotes);
     const isLoading = useSelector(state => state.isLoading)
+    const areNoQuotesReturned = useSelector(state => state.areNoQuotesReturned)
 
     const formatPercent = (number) => {
         let decimalPlaces = number.toString().split('.')[1];
@@ -46,11 +47,16 @@ function QuotesDisplay() {
                         
                     </tbody>
                 </table>
-                {!quotes.length && !isLoading &&
+                {!quotes.length && !isLoading && !areNoQuotesReturned &&
                     <div data-testid="fill-out-form-notice" className="fill-out-form-notice">Please fill out the form above to display your quotes</div>
                 }
                 {isLoading &&
                     <div className="loading">Loading...</div>
+                }
+                {areNoQuotesReturned &&
+                    <div className="no-quotes">Your search returned no results. <br/>
+                        Please modify your query and try again.
+                    </div>
                 }
         </div>
     )
