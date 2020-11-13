@@ -3,6 +3,10 @@ import { GET_QUOTES, SET_NO_QUOTES_RETURNED, GET_ERROR } from "./types";
 const baseURL = 'https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/';
 const apiKey = process.env.REACT_APP_API_KEY;
 
+export const submitGetQuotesNoResult = () => ({ type: SET_NO_QUOTES_RETURNED, payload: [] });
+export const submitGetQuotesSuccess = data => ({ type:  GET_QUOTES, payload: data.rateQuotes });
+export const submitGetQuotesError = data => ({ type: GET_ERROR, payload: data.status });
+
 export const getQuotes = async (formData, dispatch) => {
     const { loanSize, creditScore, propertyType, occupancy } = formData;
 
@@ -19,10 +23,7 @@ export const getQuotes = async (formData, dispatch) => {
         })
     
         if(!response.ok) {
-            dispatch({
-                type: GET_ERROR,
-                payload: response.status
-            })
+            dispatch(submitGetQuotesError(response))
             const message = `An error has occured: ${response.status}`
             throw new Error(message) 
         }
@@ -30,15 +31,9 @@ export const getQuotes = async (formData, dispatch) => {
         const data = await response.json();
     
         if(!data.rateQuotes.length) {
-            dispatch({
-                type: SET_NO_QUOTES_RETURNED,
-                payload: []
-            })
+            dispatch(submitGetQuotesNoResult())
         } else {
-            dispatch({
-                type: GET_QUOTES,
-                payload: data.rateQuotes
-            })
+            dispatch(submitGetQuotesSuccess(data))
         }
 
     } catch (e) {
