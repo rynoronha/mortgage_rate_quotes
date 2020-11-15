@@ -20,6 +20,10 @@ function QuotesForm() {
             if (event.target.value === '' || re.test(event.target.value)) {
                 setFormData({...formData, [event.target.name]: event.target.value});
             }
+        } else if (event.target.name === "creditScore") {
+            if (event.target.value.length < 4) {
+                setFormData({...formData, [event.target.name]: event.target.value});
+            } 
         } else {
             setFormData({...formData, [event.target.name]: event.target.value});
         }
