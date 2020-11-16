@@ -9,8 +9,8 @@ const dummy = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => resolve({ 
             data: {
-                lenderName: "lender1",
-                loanType: "15YR FIXED",
+                lenderName: 'lender1',
+                loanType: '15YR FIXED',
                 interestRate: 3.5,
                 closingCosts: 5000,
                 monthlyPayment: 2000,
@@ -22,18 +22,18 @@ const dummy = () => {
   
 const actionCreator = () => dispatch => {
     return dummy()
-      .then(response => dispatch({ type: "GET_QUOTES", payload: response.data }))
-      .catch(error => dispatch({ type: "ERROR", error }));
+      .then(response => dispatch({ type: 'GET_QUOTES', payload: response.data }))
+      .catch(error => dispatch({ type: 'ERROR', error }));
 };
   
-describe("Redux Mock Store", () => {
-    test("Test Dummy Ajax call", () => {
+describe('Redux Mock Store', () => {
+    test('Test Dummy Ajax call', () => {
         const expectedActions = [
             { 
-                type: "GET_QUOTES", 
+                type: 'GET_QUOTES', 
                 payload: { 
-                    lenderName: "lender1",
-                    loanType: "15YR FIXED",
+                    lenderName: 'lender1',
+                    loanType: '15YR FIXED',
                     interestRate: 3.5,
                     closingCosts: 5000,
                     monthlyPayment: 2000,

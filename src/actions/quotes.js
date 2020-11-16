@@ -1,4 +1,4 @@
-import { GET_QUOTES, SET_NO_QUOTES_RETURNED, GET_ERROR } from "./types";
+import { GET_QUOTES, SET_NO_QUOTES_RETURNED, GET_ERROR } from './types';
 
 const baseURL = 'https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/';
 const apiKey = process.env.REACT_APP_API_KEY;

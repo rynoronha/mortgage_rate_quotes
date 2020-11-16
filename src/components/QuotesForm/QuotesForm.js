@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
-import { getQuotes } from "../../actions/quotes"
-import { showLoader } from "../../actions/loader"
+import { useDispatch } from 'react-redux';
+import { getQuotes } from '../../actions/quotes'
+import { showLoader } from '../../actions/loader'
 
 function QuotesForm() {
     const [formData, setFormData] = useState({
-        loanSize: "",
-        creditScore: "",
-        propertyType: "SingleFamily",
-        occupancy: "Primary"
+        loanSize: '',
+        creditScore: '',
+        propertyType: 'SingleFamily',
+        occupancy: 'Primary'
     });
 
     const dispatch = useDispatch();
     
     const updateFormData = (event) => {
-        if (event.target.name === "loanSize") {
+        if (event.target.name === 'loanSize') {
             const re = /^[0-9\b]+$/;
            
             if (event.target.value === '' || re.test(event.target.value)) {
                 setFormData({...formData, [event.target.name]: event.target.value});
             }
-        } else if (event.target.name === "creditScore") {
+        } else if (event.target.name === 'creditScore') {
             if (event.target.value.length < 4) {
                 setFormData({...formData, [event.target.name]: event.target.value});
             } 
@@ -35,7 +35,7 @@ function QuotesForm() {
         showLoader(dispatch);
         e.preventDefault();
         getQuotes(formData, dispatch);
-        console.log("form submitted")
+        console.log('form submitted')
     }
 
     const formatNumberToCurrency = (e) => {
@@ -58,58 +58,58 @@ function QuotesForm() {
     }
 
     return (
-        <form data-testid="form" className="form" onSubmit={e => handleSubmit(e)}>
-            <div className="form-categories-container">
-                <div className="form-category">
-                    <label htmlFor="loan-size">Loan Size</label>
+        <form data-testid='form' className='form' onSubmit={e => handleSubmit(e)}>
+            <div className='form-categories-container'>
+                <div className='form-category'>
+                    <label htmlFor='loan-size'>Loan Size</label>
                     <input
-                        data-testid="loan-size"
+                        data-testid='loan-size'
                         value={loanSize}
                         onChange={e => updateFormData(e)}
                         onFocus={e => formatCurrencyToNumber(e)}
                         onBlur={e => formatNumberToCurrency(e)}
-                        placeholder=""
-                        type="text"
-                        name="loanSize"
-                        id="loan-size"
+                        placeholder=''
+                        type='text'
+                        name='loanSize'
+                        id='loan-size'
                         required
                     />
                 </div>
-                <div className="form-category select-container">
-                    <label htmlFor="property-type">Property Type</label>
-                    <select data-testid="property-type" name="propertyType" id="property-type" onChange={e => updateFormData(e)}>
-                        <option value="SingleFamily">Single Family</option>
-                        <option value="Condo">Condo</option>
-                        <option value="Townhouse">Townhouse</option>
-                        <option value="MultiFamily">Multi Family</option>
+                <div className='form-category select-container'>
+                    <label htmlFor='property-type'>Property Type</label>
+                    <select data-testid='property-type' name='propertyType' id='property-type' onChange={e => updateFormData(e)}>
+                        <option value='SingleFamily'>Single Family</option>
+                        <option value='Condo'>Condo</option>
+                        <option value='Townhouse'>Townhouse</option>
+                        <option value='MultiFamily'>Multi Family</option>
                     </select>
                 </div>
-                <div className="form-category">
-                    <label htmlFor="credit-score">Credit Score</label>
+                <div className='form-category'>
+                    <label htmlFor='credit-score'>Credit Score</label>
                     <input
-                        data-testid="credit-score"
+                        data-testid='credit-score'
                         value={creditScore}
                         onChange={e => updateFormData(e)}
-                        placeholder=""
-                        type="number"
-                        name="creditScore"
-                        id="credit-score"
-                        min="300" 
-                        max="850"
-                        step="1" 
+                        placeholder=''
+                        type='number'
+                        name='creditScore'
+                        id='credit-score'
+                        min='300' 
+                        max='850'
+                        step='1' 
                         required
                     />
                 </div>
-                <div className="form-category select-container">
-                    <label htmlFor="occupancy">Occupancy</label>
-                    <select data-testid="occupancy" name="occupancy" id="occupancy" onChange={e => updateFormData(e)}>
-                        <option value="Primary">Primary Residence</option>
-                        <option value="Secondary">Secondary Residence</option>
-                        <option value="Investment">Investment</option>
+                <div className='form-category select-container'>
+                    <label htmlFor='occupancy'>Occupancy</label>
+                    <select data-testid='occupancy' name='occupancy' id='occupancy' onChange={e => updateFormData(e)}>
+                        <option value='Primary'>Primary Residence</option>
+                        <option value='Secondary'>Secondary Residence</option>
+                        <option value='Investment'>Investment</option>
                     </select>
                 </div>
             </div>
-            <button data-testid="button" className="button" type="submit">Quote Rates</button>
+            <button data-testid='button' className='button' type='submit'>Quote Rates</button>
         </form>
     )
 }

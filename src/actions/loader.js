@@ -1,4 +1,4 @@
-import { SHOW_LOADER } from "./types";
+import { SHOW_LOADER } from './types';
 
 export const showLoader = async (dispatch) => {
     dispatch({

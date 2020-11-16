@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 function QuotesDisplay() {
     const quotes = useSelector(state => state.quotes);
@@ -11,19 +11,19 @@ function QuotesDisplay() {
         let decimalPlaces = number.toString().split('.')[1];
         
         if(!decimalPlaces || decimalPlaces.length <= 2) {
-            return number.toFixed(2) + "%";
+            return number.toFixed(2) + '%';
         }
         
-        return parseFloat(number.toFixed(3)) + "%";
+        return parseFloat(number.toFixed(3)) + '%';
     }
 
     const formatCurrency = (number) => {
-        return "$" + Math.round(number).toLocaleString('en-US');
+        return '$' + Math.round(number).toLocaleString('en-US');
     }
 
     return (
-        <div className="table-container">
-            <table data-testid="table" className="table">
+        <div className='table-container'>
+            <table data-testid='table' className='table'>
                     <thead>
                         <tr>
                         <th>LENDER</th>
@@ -49,19 +49,19 @@ function QuotesDisplay() {
                     </tbody>
                 </table>
                 {!quotes.length && !isLoading && !error && !areNoQuotesReturned &&
-                    <div data-testid="fill-out-form-notice" className="fill-out-form-notice">Please fill out the form above to display your quotes</div>
+                    <div data-testid='fill-out-form-notice' className='fill-out-form-notice'>Please fill out the form above to display your quotes</div>
                 }
                 {isLoading &&
-                    <div className="loading">Loading...</div>
+                    <div className='loading'>Loading...</div>
                 }
                 {areNoQuotesReturned &&
-                    <div className="no-quotes">Your search returned no results. <br/>
+                    <div className='no-quotes'>Your search returned no results. <br/>
                         Please modify your query and try again.
                     </div>
                 }
                 {error &&
-                    <div className="error-message">WHOOPS, something went wrong! Please try again. <br/>
-                        <p className="error-status">STATUS CODE: {error.status}</p>
+                    <div className='error-message'>WHOOPS, something went wrong! Please try again. <br/>
+                        <p className='error-status'>STATUS CODE: {error.status}</p>
                     </div>
                 }
         </div>
